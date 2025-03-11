@@ -1,13 +1,7 @@
-#106bombyx
+#my_printf
 ==========
 
-## How to
+## Description
 
-### Lancer le programme
-
-Pour lancer le programme, faites la commande suivante :
-> **$** ./106bombyx
-
-### Utilisation
-    - `-h`: Affiche l'aide
-    - ./106bombyx n [k | i0 i1]
+You must recode the printf function from the C library.
+Your fonction should be prototype like the printf fonction.
