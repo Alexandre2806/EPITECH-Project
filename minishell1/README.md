@@ -11,7 +11,7 @@ Pour lancer le programme, faites la commande suivante :
 > **$** ./mysh
 
 ### Utilisation
-    - 'cd': change directory
-    - 'ls': list files in the current directory
-    - 'pwd': print the current directory
-    - 'exit': exit the shell
+    - `cd`: change directory
+    - `ls`: list files
+    - `pwd`: print working directory
+    - `exit`: terminate the shell
