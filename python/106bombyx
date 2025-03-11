@@ -1,0 +1,69 @@
+#!/usr/bin/env python3
+##
+## EPITECH PROJECT, 2025
+## 106bombyx
+## File description:
+## 106bombyx
+##
+
+import sys
+
+def bombyx_evo(n, k):
+    generations = []
+    x = float(n)
+    for i in range(1, 101):
+        generations.append((i, x))
+        x = k * x * (1000 - x) / 1000
+    return generations
+
+def analyse_result(n, i0, i1):
+    results = []
+    k = 1.00
+    while k <= 4.00:
+        x = float(n)
+        for i in range(i1 + 1):
+            if i >= i0:
+                results.append((round(k, 2), x))
+            x = k * x * (1000 - x) / 1000
+        k += 0.01
+    return results
+
+def main():
+    if len(sys.argv) == 2 and sys.argv[1] == "-h":
+        print("USAGE\n\t./106bombyx n [k | i0 i1]\n\n"
+              "DESCRIPTION\n\tn\tnumber of first generation individuals\n\t"
+              "k\tgrowth rate from 1 to 4\n\ti0\tinitial generation (included)\n\t"
+              "i1\tfinal generation (included)", file=sys.stderr)
+        sys.exit(0)
+
+
+    if len(sys.argv) < 3 or len(sys.argv) > 4:
+        print("USAGE\n\t./106bombyx n [k | i0 i1]\n\n"
+              "DESCRIPTION\n\tn\tnumber of first generation individuals\n\t"
+              "k\tgrowth rate from 1 to 4\n\ti0\tinitial generation (included)\n\t"
+              "i1\tfinal generation (included)", file=sys.stderr)
+        sys.exit(84)
+    try:
+        n = int(sys.argv[1])
+        if n <= 0:
+            raise ValueError
+
+        if len(sys.argv) == 3:
+            k = float(sys.argv[2])
+            if not (1.0 <= k <= 4.0):
+                raise ValueError
+            for gen, pop in bombyx_evo(n, k):
+                print(f"{gen} {pop:.2f}")
+
+        elif len(sys.argv) == 4:
+            i0 = int(sys.argv[2])
+            i1 = int(sys.argv[3])
+            if i0 < 0 or i1 < 0 or i0 > i1:
+                raise ValueError
+            for k_val, pop in analyse_result(n, i0, i1):
+                print(f"{k_val:.2f} {pop:.2f}")
+
+    except (ValueError, IndexError):
+        print("Invalid input.", file=sys.stderr)
+        sys.exit(84)
+main()
