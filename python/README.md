@@ -1,11 +1,10 @@
 #106bombyx
 ==========
 
-## Description
+## Subject
 
-You must recode the printf function from the C library.
-Your fonction should be prototype like the printf fonction.
+It is necessary to model the evolution of a population of bombyx according to a recurrence relation depending on the growth rate kk, and display the results to plot them with Gnuplot.
 
-## How to
+## USAGE
 
-
+./106bombyx n [k | i0 i1]
