@@ -1,0 +1,11 @@
+diff --git a/src/commands/trigger_emergency_shutdown.c b/src/commands/trigger_emergency_shutdown.c
+index 09cd07f..63b7112 100644
+--- a/src/commands/trigger_emergency_shutdown.c
++++ b/src/commands/trigger_emergency_shutdown.c
+@@ -15,6 +15,5 @@ void trigger_emergency_shutdown()
+         printf("You are not authorized to trigger an emergency shutdown.\n");
+         return;
+     }
+-    printf("{SHUTDOWN}");
+     exit(0);
+ }

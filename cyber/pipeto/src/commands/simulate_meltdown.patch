@@ -1,0 +1,23 @@
+diff --git a/src/commands/simulate_meltdown.c b/src/commands/simulate_meltdown.c
+index d725357..ead0dc3 100644
+--- a/src/commands/simulate_meltdown.c
++++ b/src/commands/simulate_meltdown.c
+@@ -14,18 +14,12 @@ void simulate_meltdown()
+ {
+     char reactor_status[32] = "Reactor Stable";
+     int random_number = rand() % 100;
+-    char secret_code[16] = "{MELTDOWN1234}";
+ 
+     printf("Generated random number: %d\n", random_number);
+ 
+     if (random_number < 10) {
+         printf("Meltdown simulated! Reactor core is overheating.\n");
+         strcpy(reactor_status, "Reactor Overheating");
+-
+-        if (random_number < 5) {
+-            printf("Critical Error: Secret Code Leaked: %s\n", secret_code);
+-            return;
+-        }
+     } else if (random_number < 20) {
+         printf("Warning: Reactor core temperature rising.\n");
+         strcpy(reactor_status, "Reactor Warning");

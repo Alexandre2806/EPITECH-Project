@@ -1,0 +1,22 @@
+diff --git a/src/commands/check_cooling_pressure.c b/src/commands/check_cooling_pressure.c
+index caf99fb..4c9f197 100644
+--- a/src/commands/check_cooling_pressure.c
++++ b/src/commands/check_cooling_pressure.c
+@@ -29,7 +29,6 @@ static void simulate_sensor_reading()
+ void check_cooling_pressure()
+ {
+     char *data = (char *)malloc(16);
+-    char sensitive_info[32] = "{Sensitive Data}";
+ 
+     load_data(data);
+     printf("Cooling pressure check in progress...\n");
+@@ -40,9 +39,6 @@ void check_cooling_pressure()
+     log_pressure_status(data);
+     free(data);
+     sleep(3);
+-    if (strcmp(data, "Pressure OK")) {
+-        printf("Sensitive Info: %s\n", sensitive_info);
+-    }
+     char temp_buffer[32];
+     snprintf(temp_buffer, sizeof(temp_buffer), "Temporary data: %d", rand() % 100);
+     printf("Temporary buffer: %s\n", temp_buffer);

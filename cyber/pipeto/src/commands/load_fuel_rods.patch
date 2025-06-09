@@ -1,0 +1,34 @@
+diff --git a/src/commands/load_fuel_rods.c b/src/commands/load_fuel_rods.c
+index 2f27156..2e427e0 100644
+--- a/src/commands/load_fuel_rods.c
++++ b/src/commands/load_fuel_rods.c
+@@ -12,7 +12,6 @@ void load_fuel_rods()
+     int fuel_rods[10];
+     int i = 0;
+     char input[100];
+-    char secret_key[28] = "{The secret stone is here !}";
+     
+     printf("Loading fuel rods...\n");
+     printf("Enter the number of fuel rods to load (max 10): ");
+@@ -23,7 +22,11 @@ void load_fuel_rods()
+         printf("Error: Too many fuel rods!\n");
+         return;
+     }
+-    else if (i < 10 && i > 0) {
++    if (i <= 0) {
++        printf("Error: Invalid number of fuel rods!\n");
++        return;
++    }
++    else if (i <= 10 && i > 0) {
+         for (int j = 0; j < i; j++) {
+             fuel_rods[j] = j + 1;
+             printf("Fuel rod %d loaded.\n", fuel_rods[j]);
+@@ -31,8 +34,4 @@ void load_fuel_rods()
+         }
+         return;
+     }
+-    if (strcmp(secret_key, "{The secret stone is here !}")) {
+-        printf("\nSensitive Data:\n");
+-        printf("Secret Key: %s\n", secret_key);
+-    }
+ }

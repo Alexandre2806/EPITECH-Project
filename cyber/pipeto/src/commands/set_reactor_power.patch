@@ -1,0 +1,12 @@
+diff --git a/src/commands/set_reactor_power.c b/src/commands/set_reactor_power.c
+index 0dc1821..801c512 100644
+--- a/src/commands/set_reactor_power.c
++++ b/src/commands/set_reactor_power.c
+@@ -25,7 +25,6 @@ void set_reactor_power()
+         printf("\nReactor power adjustment may be incorrect.\n");
+         printf("Reactor systems are behaving erratically!\n");
+         printf("Reactor core temperature rising uncontrollably...\n");
+-        printf("{12EXPLOSION34}\n");
+         printf("Emergency shutdown initiated!\n\n");
+         exit(1);
+     }

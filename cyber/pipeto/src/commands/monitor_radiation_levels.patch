@@ -1,0 +1,17 @@
+diff --git a/src/commands/monitor_radiation_levels.c b/src/commands/monitor_radiation_levels.c
+index f7fa47d..d8f4802 100644
+--- a/src/commands/monitor_radiation_levels.c
++++ b/src/commands/monitor_radiation_levels.c
+@@ -7,11 +7,7 @@
+ 
+ #include <stdio.h>
+ #include <string.h>
+-void secret_function ()
+-	{
+-		printf (
+-				"{The stone isn't in the pocket anymore ...}\n");
+-	}
++
+ void monitor_radiation_levels ()
+ 	{
+ 		char    buffer[10];

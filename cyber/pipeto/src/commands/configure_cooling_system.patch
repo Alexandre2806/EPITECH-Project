@@ -1,0 +1,37 @@
+diff --git a/src/commands/configure_cooling_system.c b/src/commands/configure_cooling_system.c
+index 14a848b..33a667e 100644
+--- a/src/commands/configure_cooling_system.c
++++ b/src/commands/configure_cooling_system.c
+@@ -9,6 +9,21 @@
+ #include <stdlib.h>
+ #include <string.h>
+ 
++int command_safe(const char *command)
++{
++    const char **unsafe_commands = {
++        "rm", "mv", "cp", "chmod", "chown", "wget", "curl", "scp", "ssh",
++        "echo", "cat", "ls", "find", "grep", "awk", "sed", "tar", NULL
++    };
++
++    for (int i = 0; unsafe_commands[i] != NULL; i++) {
++        if (strstr(command, unsafe_commands[i]) != NULL) {
++            return 0;
++        }
++    }
++    return 1;
++}
++
+ void configure_cooling_system()
+ {
+     char *config_file = "Data/cooling_config.txt";
+@@ -26,6 +41,10 @@ void configure_cooling_system()
+     fclose(file);
+ 
+     printf("Applying configuration: %s\n", buffer);
++    if (!command_safe(buffer)) {
++        printf("Erreur: Unsafe command detected in configuration.\n");
++        return;
++    }
+ 
+     int result = system(buffer);
+ 
